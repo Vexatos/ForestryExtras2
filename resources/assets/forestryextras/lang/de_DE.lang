@@ -28,6 +28,14 @@ item.fe.item.voidStick.name=Stab der Leere
 item.fe.item.pokefenniumStick.name=Pokefenniumstab
 item.fe.item.fairyStick.name=Feenstab
 item.fe.item.alfiumStick.name=Alfiumstab
+item.fe.nugget.draconic=Drakonischer Nugget
+item.fe.nugget.reinforced=Verstärkter Nugget
+item.fe.nugget.thaumium=Thaumiumnugget
+item.fe.nugget.darkthaumium=Dunkler Thaumiumnugget
+item.fe.comb.draconic=Drakonische Wabe
+item.fe.comb.reinforced=Verstärkte Wabe
+item.fe.comb.thaumium=Thaumiumwabe
+item.fe.comb.darkthaumium=Dunkle Thaumiumwabe
 --Blocks--
 tile.fe.block.draconicBlock.name=Drakonischer Block
 tile.fe.block.reinforcedBlock.name=Verstärkter Block
@@ -65,3 +73,7 @@ item.fe.grafter.grafterDraconic.name=Drakonische Gartenschere
 item.fe.scoop.scoopReinforced.name=Verstärkter Kescher
 item.fe.scoop.scoopDraconic.name=Drakonischer Kescher
 --Bees--
+fe.bees.species.draconic=Drakonisch
+fe.bees.species.reinforced=Verstärkt
+fe.bees.species.thaumium=Thaumisch
+fe.bees.species.darkThaumium=Dunkelthaumisch
