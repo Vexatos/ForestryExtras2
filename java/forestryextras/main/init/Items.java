@@ -1,5 +1,6 @@
 package forestryextras.main.init;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,9 +9,11 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import forestryextras.helpers.NuggetHelper;
 import forestryextras.items.FEItemFrame;
 import forestryextras.items.FEItemGrafter;
 import forestryextras.items.FEItemIngot;
+import forestryextras.items.FEItemNugget;
 import forestryextras.items.FEItemScoop;
 import forestryextras.items.FEItemStick;
 import forestryextras.main.Config;
@@ -26,10 +29,13 @@ public class Items {
 		initModSupportItems();
 		initModSupportFrames();
 		initWorldGen();
+		initNuggets();
+		Bees.init();
 	}
 	
 	public static void initItems()
 	{
+		
 		draconicIngot = new FEItemIngot(Config.draconicIngotId, "draconicIngot", 0xFF0000, "ingotDraconic");
 		reinforcedIngot = new FEItemIngot(Config.reinforcedIngotId, "reinforcedIngot", 0x999999, "ingotReinforced");
 		alfiumIngot = new FEItemIngot(Config.alfiumIngotId, "alfiumIngot", 0x663366, "ingotAlfium");
@@ -45,7 +51,6 @@ public class Items {
 		obsidianStick = new FEItemStick(Config.obsidianStickId, "obsidianStick", 0x999966, "stickObsidian", new ItemStack(Block.obsidian));
 		reinforcedStick = new FEItemStick(Config.reinforcedStickId, "reinforcedStick", 0xCCCC99, "stickReinforced", new ItemStack(Items.reinforcedIngot));
 		alfiumStick = new FEItemStick(Config.alfiumStickId, "alfiumStick", 0x663366, "stickAlfium", new ItemStack(Items.alfiumIngot));
-
 	}
 	public static FEItemIngot draconicIngot;
 	public static FEItemIngot reinforcedIngot;
@@ -62,7 +67,7 @@ public class Items {
 	public static FEItemStick obsidianStick;
 	public static FEItemStick reinforcedStick;
 	public static FEItemStick alfiumStick;
-	
+
 	public static void initFrames()
 	{
 		coalFrame = new FEItemFrame(Config.coalFrameId, 100, false, false, false, false, 1.0F, 1.0F, 1.1F, 1.0F, 1.0F, 1.0F, "frameCoal", "frameCoal", "frame", 0x000000, new ItemStack(Item.silk), new ItemStack(Items.coalStick), true, null, 0);
@@ -235,4 +240,20 @@ public class Items {
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Items.alfiumIngot), 0, 3, 0));	
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(Items.ryuIngot), 0, 3, 0));	
 	}
+	
+	public static void initNuggets()
+	{
+		NuggetHelper.addNuggetToMap(0, "Draconic", 0xFF0000, new ItemStack(Items.draconicIngot));
+		NuggetHelper.addNuggetToMap(1, "Reinforced", 0xCCCC99, new ItemStack(Items.reinforcedIngot));
+		
+		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0){
+		NuggetHelper.addNuggetToMap(2, "Thaumium", 0x9966FF, OreDictionary.getOres("ingotThaumium").get(0));}
+		
+		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0){
+		NuggetHelper.addNuggetToMap(3, "Dark Thaumium", 0x993399, OreDictionary.getOres("IngotDarkThaumium").get(0));}
+
+		nugget = new FEItemNugget(Config.nuggetId);
+		NuggetHelper.addRecipes();
+	}
+	public static FEItemNugget nugget;
 }

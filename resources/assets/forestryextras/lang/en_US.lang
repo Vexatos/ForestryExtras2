@@ -28,6 +28,14 @@ item.fe.item.voidStick.name=Void Stick
 item.fe.item.pokefenniumStick.name=Pokefennium Stick
 item.fe.item.fairyStick.name=Fairy Stick
 item.fe.item.alfiumStick.name=Alfium Stick
+item.fe.nugget.draconic=Draconic Nugget
+item.fe.nugget.reinforced=Reinforced Nugget
+item.fe.nugget.thaumium=Thaumium Nugget
+item.fe.nugget.darkthaumium=Dark Thaumium Nugget
+item.fe.comb.draconic=Draconic Comb
+item.fe.comb.reinforced=Reinforced Comb
+item.fe.comb.thaumium=Thaumium Comb
+item.fe.comb.darkthaumium=Dark Thaumium Comb
 --Blocks--
 tile.fe.block.draconicBlock.name=Draconic Block
 tile.fe.block.reinforcedBlock.name=Reinforced Block
@@ -65,3 +73,7 @@ item.fe.grafter.grafterDraconic.name=Draconic Grafter
 item.fe.scoop.scoopReinforced.name=Reinforced Scoop
 item.fe.scoop.scoopDraconic.name=Draconic Scoop
 --Bees--
+fe.bees.species.draconic=Draconic
+fe.bees.species.reinforced=Reinforced
+fe.bees.species.thaumium=Thaumium
+fe.bees.species.darkThaumium=Dark Thaumium

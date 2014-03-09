@@ -16,7 +16,7 @@ public class Blocks {
 	public static void init()
 	{
 		draconicBlock = new FEBlock(Config.draconicBlockId, Material.iron, "draconicBlock", "draconicblock", true, 1.0F, new ItemStack(Items.draconicIngot));
-		reinforcedBlock = new FEBlock(Config.reinforcedBlockId, Material.iron, "reinforcedBlock", "reinforcedBlock", true, 1.0F, new ItemStack(Items.reinforcedIngot));
+		reinforcedBlock = new FEBlock(Config.reinforcedBlockId, Material.iron, "reinforcedBlock", "reinforcedblock", true, 1.0F, new ItemStack(Items.reinforcedIngot));
 		draconicOre = new FEBlock(Config.draconicOreId, Material.iron, "draconicOre", "draconicore", false, 0F, null);
 
 		GameRegistry.registerWorldGenerator(new WorldGen());

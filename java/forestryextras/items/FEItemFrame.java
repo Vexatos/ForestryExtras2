@@ -89,16 +89,16 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     {
     	if(easy == true){
     		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
-    			" X ",
+    			"XXX",
     			"XIX",
-    			" X ",
+    			"XXX",
     			'X', frameMat,
     			'I', bindingMat});
     	}else{
     		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this), new Object[]{
-    			" X ",
+    			"XXX",
     			"XIX",
-    			" X ",
+    			"XXX",
     			'X', frameMat,
     			'I', bindingMat});
     	}

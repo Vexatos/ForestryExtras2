@@ -68,6 +68,8 @@ public class Config {
 	    	darkThaumiumStickId = config.getItem("darkThaumiumStick", 5562).getInt();
 	    	alfiumStickId = config.getItem("alfiumStick", 5563).getInt();
 
+	    	nuggetId = config.getItem("nugget", 6534).getInt();
+	    	honeyCombId = config.getItem("honeyComb", 6535).getInt();
 	    	draconicIngotId = config.getItem("ingotDraconic", 6536).getInt();
 	    	reinforcedIngotId = config.getItem("ingotReinforced", 6537).getInt();
 	    	alfiumIngotId = config.getItem("ingotAlfium", 6538).getInt();
@@ -156,6 +158,9 @@ public class Config {
     public static int draconicIngotId;
     public static int alfiumIngotId;
     public static int ryuIngotId;
+    
+    public static int honeyCombId;
+    public static int nuggetId;
 
     public static int reinforcedScoopId;
     public static int draconicScoopId;

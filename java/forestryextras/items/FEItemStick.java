@@ -37,7 +37,7 @@ public class FEItemStick extends Item{
 	
 	public void recipes()
 	{
-		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
+		GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
 			" X",
 			"X ",
 			'X', mat});
