@@ -3,6 +3,7 @@ package forestryextras.items;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -16,13 +17,15 @@ import forestryextras.main.init.Tabs;
 
 public class FEItemScoop extends Item implements IToolScoop{
 
-	public FEItemScoop(int id, String itemName, int itemColor, String oreDictName, int maxItemDamage, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
+	public FEItemScoop(int id, String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		super(id);
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "scoop" + "." + itemName);
 		setCreativeTab(Tabs.tabMain);
 		setMaxDamage(maxItemDamage);
+		setMaxStackSize(1);
 		name = itemName;
-		color = itemColor;
+		primColor = primaryColor;
+		secColor = secondaryColor;
 		oreDict = oreDictName;
 		mainMat = mainMaterial;
 		handleMat = handleMaterial;
@@ -33,13 +36,15 @@ public class FEItemScoop extends Item implements IToolScoop{
 	}
 	String name;
 	String oreDict;
-	int color;
+	int primColor;
+	int secColor;
 	ItemStack mainMat;
 	ItemStack handleMat;
 	boolean easy;
 	FluidStack recFluid;
 	int createTime;
-	
+	Icon primary;
+	Icon secondary;
 	public void init()
 	{
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
@@ -68,6 +73,7 @@ public class FEItemScoop extends Item implements IToolScoop{
     	}
     }
     
+    /*
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int id)
 	{
@@ -78,5 +84,44 @@ public class FEItemScoop extends Item implements IToolScoop{
     public void registerIcons(IconRegister ir) 
 	{
         itemIcon = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop");
+	}
+	*/
+    
+    @Override
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamageForRenderPass(int meta, int renderPass) {
+		if(renderPass > 0) {
+			return this.primary;
+		}
+		return this.secondary;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean requiresMultipleRenderPasses() {
+		return true;
+	}
+
+	@Override
+	public int getRenderPasses(int meta) {
+		return 2;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack stack, int pass)
+	{		
+		if(pass > 0) 
+		{
+			return secColor;
+		}
+			return primColor;
+	}
+	
+	@Override
+    public void registerIcons(IconRegister ir) 
+	{
+		this.primary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop1");
+		this.secondary = ir.registerIcon(Main.modName.toLowerCase() + ":" + "scoop2");
 	}
 }

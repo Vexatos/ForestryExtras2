@@ -8,12 +8,15 @@ public class IntergrationLoader {
 	{
 		if(Loader.isModLoaded("ForgeMultipart")){
 			System.out.print("ForgeMultipart is installed, adding intergration" + '\n');
-			ForgeMultipart.init();
-		}
+			ForgeMultipart.init();}
 		
 		if(Loader.isModLoaded("TinkersConstruct")){
-			System.out.print("Tinkers Construct is installed, adding intergration" + '\n');
-			TinkersConstruct.init();
+			//System.out.print("Tinkers Construct is installed, adding intergration" + '\n');
+			TinkersConstruct.init();}
+		
+		if(Loader.isModLoaded("Thaumcraft")){
+			System.out.print("Thaumcraft is installed, adding intergration" + '\n');
+			Thaumcraft.init();
 		}
 	}
 	

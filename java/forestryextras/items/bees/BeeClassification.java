@@ -11,7 +11,9 @@ public enum BeeClassification implements IClassification
 	DRACONIC("Draconic", "Draconic"),
 	REINFORCED("Reinforced", "Reinforced"),
 	THAUMIUM("Thaumium", "Thaumium"),
-	DARKTHAUMIUM("DarkThaumium", "DarkThaumium");
+	DARKTHAUMIUM("DarkThaumium", "DarkThaumium"),
+	FAIRY("Fairy", "Fairy"),
+	POKEFENNIUM("Pokefennium", "Pokefennium");
 
 	private String uID;
 	private String latin;

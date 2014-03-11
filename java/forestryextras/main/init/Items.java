@@ -93,8 +93,8 @@ public class Items {
 
 	public static void initScoops()
 	{
-		reinforcedScoop = new FEItemScoop(Config.reinforcedScoopId, "scoopReinforced", 0x999999, "scoopReinforced", 300, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
-		draconicScoop = new FEItemScoop(Config.draconicScoopId, "scoopDraconic", 0xFF0000, "scoopDraconic", 700, new ItemStack(Items.draconicIngot), new ItemStack(Items.draconicStick), true, null, 0);
+		reinforcedScoop = new FEItemScoop(Config.reinforcedScoopId, "scoopReinforced", 0xFFFFFF, 0x999999, "scoopReinforced", 300, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
+		draconicScoop = new FEItemScoop(Config.draconicScoopId, "scoopDraconic", 0xFFFFFF, 0xFF0000, "scoopDraconic", 700, new ItemStack(Items.draconicIngot), new ItemStack(Items.draconicStick), true, null, 0);
 
 	}
 	public static FEItemScoop reinforcedScoop;
@@ -102,8 +102,8 @@ public class Items {
 
 	public static void initGrafters()
 	{
-		reinforcedGrafter = new FEItemGrafter(Config.reinforcedGrafterId, "grafterReinforced", 0x999999, "grafterReinforced", 300, 1.5F, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
-		draconicGrafter = new FEItemGrafter(Config.draconicGrafterId, "grafterDraconic", 0xFF0000, "grafterDraconic", 700, 2.0F, new ItemStack(Items.draconicIngot), new ItemStack(Items.draconicStick), true, null, 0);
+		reinforcedGrafter = new FEItemGrafter(Config.reinforcedGrafterId, "grafterReinforced", 0x996633, 0x999999, "grafterReinforced", 300, 1.5F, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
+		draconicGrafter = new FEItemGrafter(Config.draconicGrafterId, "grafterDraconic", 0x996633, 0xFF0000, "grafterDraconic", 700, 2.0F, new ItemStack(Items.draconicIngot), new ItemStack(Items.draconicStick), true, null, 0);
 	}
 	public static FEItemGrafter draconicGrafter;
 	public static FEItemGrafter reinforcedGrafter;
@@ -251,6 +251,12 @@ public class Items {
 		
 		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0){
 		NuggetHelper.addNuggetToMap(3, "Dark Thaumium", 0x993399, OreDictionary.getOres("IngotDarkThaumium").get(0));}
+
+		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotFairy").size() > 0){
+		NuggetHelper.addNuggetToMap(4, "Fairy", 0xFF33FF, OreDictionary.getOres("ingotFairy").get(0));}
+		
+		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
+		NuggetHelper.addNuggetToMap(5, "Pokefennium", 0x9999FF, OreDictionary.getOres("ingotPokefennium").get(0));}
 
 		nugget = new FEItemNugget(Config.nuggetId);
 		NuggetHelper.addRecipes();

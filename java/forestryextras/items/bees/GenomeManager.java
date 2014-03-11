@@ -80,6 +80,30 @@ public class GenomeManager {
 			return genome;
 		}
 		
+		public static IAllele[] getPokefenniumTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.pokefenniumBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getFairyTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.fairyBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
 		public static ItemStack getBeeNBTForSpecies(Species species, EnumBeeType beeType)
 		{
 			ItemStack taggedBee;
