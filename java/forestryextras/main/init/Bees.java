@@ -124,7 +124,7 @@ public class Bees {
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
 		products = new ItemStack[]{new ItemStack(Items.nugget, 1, 5), OreDictionary.getOres("dropHoney").get(0)};
 		chance = new int[]{15, 75};
-		CombHelper.addCombToMap(3, "Pokefennium", 0x9966CC, 0x99FFCC, products, chance);}
+		CombHelper.addCombToMap(4, "Pokefennium", 0x9966CC, 0x99FFCC, products, chance);}
 	
 		comb = new FEItemComb(Config.honeyCombId);
 		CombHelper.addRecipes();

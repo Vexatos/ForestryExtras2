@@ -9,7 +9,6 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import forestryextras.helpers.CombHelper;
 import forestryextras.helpers.NuggetHelper;
 import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
@@ -19,7 +18,7 @@ public class FEItemNugget extends Item{
 		super(id);
 		setCreativeTab(Tabs.tabMain);
         setHasSubtypes(true);
-        setUnlocalizedName(getUnlocalizedName());
+        setUnlocalizedName(Main.alias.toLowerCase() + "." + "nugget");
 		init();
 	}
 	
@@ -30,7 +29,10 @@ public class FEItemNugget extends Item{
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item.fe.nugget." + CombHelper.name.get(stack.getItemDamage()).toLowerCase() ;
+		String unlocalizedStackName = NuggetHelper.name.get(stack.getItemDamage());
+		if (unlocalizedStackName != null)
+			return "item.fe.nugget." + unlocalizedStackName.toLowerCase() ;
+		return getUnlocalizedName();
 	}
 	
 	public void init()
@@ -40,9 +42,11 @@ public class FEItemNugget extends Item{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubItems(int id, CreativeTabs creativeTab, List list) {
 		for(int i = 0; i < NuggetHelper.nuggets.size(); i++) {
-			list.add(new ItemStack(id, 1, i));
+			int meta = NuggetHelper.nuggets.get(i);
+			list.add(new ItemStack(id, 1, meta));
 		}
 	}
 

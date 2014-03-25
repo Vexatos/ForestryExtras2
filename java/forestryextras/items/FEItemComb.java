@@ -17,7 +17,7 @@ import forestryextras.main.init.Tabs;
 public class FEItemComb extends Item{
 	public FEItemComb(int id) {
 		super(id);
-		//setUnlocalizedName(Main.alias.toLowerCase() + "." + "comb" + "." + itemName);
+		setUnlocalizedName(Main.alias.toLowerCase() + "." + "comb");
 		setCreativeTab(Tabs.tabMain);
         setHasSubtypes(true);
 
@@ -33,7 +33,10 @@ public class FEItemComb extends Item{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item.fe.comb." + CombHelper.name.get(stack.getItemDamage()).toLowerCase() ;
+		String unlocalizedStackName = CombHelper.name.get(stack.getItemDamage());
+		if (unlocalizedStackName != null)
+			return "item.fe.comb." + unlocalizedStackName.toLowerCase() ;
+		return getUnlocalizedName();
 	}
 	public void init()
 	{
@@ -42,9 +45,11 @@ public class FEItemComb extends Item{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubItems(int id, CreativeTabs creativeTab, List list) {
 		for(int i = 0; i < CombHelper.combs.size(); i++) {
-			list.add(new ItemStack(id, 1, i));
+			int meta = CombHelper.combs.get(i);
+			list.add(new ItemStack(id, 1, meta));
 		}
 	}
 	

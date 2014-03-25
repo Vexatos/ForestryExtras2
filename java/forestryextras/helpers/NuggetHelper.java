@@ -23,12 +23,19 @@ public class NuggetHelper {
 		addOreDictionary();
 		for(int i = 0; i < nuggets.size(); i++)
 		{
-			GameRegistry.addShapedRecipe(output.get(i), new Object[]{
-				"XXX",
-				"XXX",
-				"XXX",
-				'X', new ItemStack(Items.nugget, 1, i)});
-			GameRegistry.addShapelessRecipe(new ItemStack(Items.nugget, 9, i), output.get(i));
+			int meta = nuggets.get(i);
+			ItemStack outputStack = output.get(meta);
+			
+			if (outputStack != null) 
+			{
+				GameRegistry.addShapedRecipe(outputStack, new Object[]{
+					"XXX",
+					"XXX",
+					"XXX",
+					'X', new ItemStack(Items.nugget, 1, meta)});
+				GameRegistry.addShapelessRecipe(new ItemStack(Items.nugget, 9, meta), outputStack);
+			}
+			
 		}
 			//RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(Bees.comb, 1, i), output.get(i));
 	}
@@ -36,7 +43,17 @@ public class NuggetHelper {
 	public static void addOreDictionary()
 	{
 		for(int i = 0; i < nuggets.size(); i++)
-			OreDictionary.registerOre("nugget" + name.get(i), new ItemStack(Items.nugget, 1, i));
+		{
+			int meta = nuggets.get(i);
+			String nuggetName = name.get(meta);
+			
+			if (nuggetName != null)
+			{
+				OreDictionary.registerOre("nugget" + nuggetName, new ItemStack(Items.nugget, 1, meta));
+			}
+			
+		}
+			
 	}
 	
 	public static ArrayList<Integer> nuggets = new ArrayList<Integer>();

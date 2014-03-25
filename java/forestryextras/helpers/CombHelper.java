@@ -22,14 +22,29 @@ public class CombHelper {
 	public static void addRecipes()
 	{
 		addOreDictionary();
-		for(int i = 0; i < combs.size(); i++)
-			RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(Bees.comb, 1, i), outputStacks.get(i), outputChance.get(i));
+		for(int i = 0; i < combs.size(); i++){
+			
+			int meta = combs.get(i);
+			
+			ItemStack[] output = outputStacks.get(meta);
+			int[] chance = outputChance.get(meta);
+			
+			if (output != null && chance != null) {
+				RecipeManagers.centrifugeManager.addRecipe(10, new ItemStack(Bees.comb, 1, meta),output, chance);
+			}
+			
+		}
+			
 	}
 	
 	public static void addOreDictionary()
 	{
-		for(int i = 0; i < combs.size(); i++)
-			OreDictionary.registerOre("beeComb", new ItemStack(Bees.comb, 1, i));
+		for(int i = 0; i < combs.size(); i++) {
+			
+			int meta = combs.get(i);
+			OreDictionary.registerOre("beeComb", new ItemStack(Bees.comb, 1, meta));
+			
+		}
 	}
 	
 	public static ArrayList<Integer> combs = new ArrayList<Integer>();
