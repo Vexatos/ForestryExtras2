@@ -38,7 +38,10 @@ public class Config {
 	    	voidFrameId = config.getItem("voidFrame", 4566).getInt();
 	    	pokefenniumFrameId = config.getItem("pokefenniumFrame", 4567).getInt();
 	    	fairyFrameId = config.getItem("fairyFrame", 4568).getInt();
-	    	alfiumFrameId = config.getItem("fairyAlfium", 4569).getInt();
+	    	alfiumFrameId = config.getItem("alfiumFrame", 4569).getInt();
+	    	mckeFrameId = config.getItem("rfFrame", 4570).getInt();
+	    	upgradeFrameId = config.getItem("upgradeFrame", 4571).getInt();
+	    	witheriaFrameId = config.getItem("witheriaFrame", 4572).getInt();
 
 	    	diamondStickId = config.getItem("diamondStick", 5536).getInt();
 	    	draconicStickId = config.getItem("draconicStick", 5537).getInt();
@@ -67,6 +70,7 @@ public class Config {
 	    	thaumiumStickId = config.getItem("thaumiumStick", 5561).getInt();
 	    	darkThaumiumStickId = config.getItem("darkThaumiumStick", 5562).getInt();
 	    	alfiumStickId = config.getItem("alfiumStick", 5563).getInt();
+	    	witheriaStickId = config.getItem("witheriaStick", 5564).getInt();
 
 	    	nuggetId = config.getItem("nugget", 6534).getInt();
 	    	honeyCombId = config.getItem("honeyComb", 6535).getInt();
@@ -74,6 +78,7 @@ public class Config {
 	    	reinforcedIngotId = config.getItem("ingotReinforced", 6537).getInt();
 	    	alfiumIngotId = config.getItem("ingotAlfium", 6538).getInt();
 	    	ryuIngotId = config.getItem("ingotRyu", 6539).getInt();
+	    	witheriaIngotId = config.getItem("ingotWitheria", 6540).getInt();
 
 	    	reinforcedScoopId = config.getItem("reinforcedScoop", 6837).getInt();
 	    	reinforcedGrafterId = config.getItem("reinforcedGrafter", 6840).getInt();
@@ -83,13 +88,25 @@ public class Config {
 	    	draconicScoopId = config.getItem("draconicScoop", 6844).getInt();
 	    	uberScoopId = config.getItem("uberScoop", 6845).getInt();
 	    	legendaryScoopId = config.getItem("legendaryScoop", 6846).getInt();
+	    	mckeScoopId = config.getItem("mckeScoop", 6847).getInt();
+	    	mckeGrafterId = config.getItem("mckeGrafter", 6848).getInt();
+	    	customGrafterId = config.getItem("customGrafter", 6849).getInt();
 
 	    	
 	    	draconicBlockId = config.getBlock("draconicBlock", 760).getInt();
 	    	reinforcedBlockId = config.getBlock("reinforcedBlock", 761).getInt();
 	    	draconicOreId = config.getBlock("draconicOre", 771).getInt();
+	    	producerId = config.getBlock("producer", 772).getInt();
+	    	upgraderId = config.getBlock("upgrader", 773).getInt();
+	    	//beeEngineId = config.getBlock("beeEngine", 774).getInt();
+
+	    	//beeEngineOutput = config.get(Configuration.CATEGORY_GENERAL, "beeEngineOutput", 100).getInt();
 	    	
-	    	dragonEggRecipe = config.get(Configuration.CATEGORY_GENERAL, "dragonEggRecipe", false).getBoolean(dragonEggRecipe);
+	    	//beeEngineLifespan = config.get(Configuration.CATEGORY_GENERAL, "beeEngineLifespan", 64000).getInt();
+	    	itemList = config.get(Configuration.CATEGORY_GENERAL, "itemList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
+	    	mutationList = config.get(Configuration.CATEGORY_GENERAL, "mutationList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
+	    	frameList = config.get(Configuration.CATEGORY_GENERAL, "frameList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
+
 	    	config.save();
 }
 	
@@ -123,6 +140,9 @@ public class Config {
     public static int darkThaumiumFrameId;
     public static int thaumiumFrameId;
     public static int alfiumFrameId;
+    public static int mckeFrameId;
+    public static int upgradeFrameId;
+    public static int witheriaFrameId;
 
     public static int ironStickId;
     public static int goldStickId;
@@ -153,9 +173,11 @@ public class Config {
     public static int fairyStickId;
     public static int darkThaumiumStickId;
     public static int thaumiumStickId;
+    public static int witheriaStickId;
 
     public static int reinforcedIngotId;
     public static int draconicIngotId;
+    public static int witheriaIngotId;
     public static int alfiumIngotId;
     public static int ryuIngotId;
     
@@ -166,15 +188,27 @@ public class Config {
     public static int draconicScoopId;
     public static int legendaryScoopId;
     public static int uberScoopId;
+    public static int mckeScoopId;
 
     public static int reinforcedGrafterId;   
     public static int draconicGrafterId;
     public static int legendaryGrafterId;
     public static int uberGrafterId;
-    
+    public static int mckeGrafterId;
+    public static int customGrafterId;
+
     public static int draconicBlockId;
     public static int reinforcedBlockId;
     public static int draconicOreId;
+    public static int producerId;
+    public static int upgraderId;
+   // public static int beeEngineId;
+
+    //public static int beeEngineOutput;
+    //public static int beeEngineLifespan;
+    public static String itemList;
+    public static String mutationList;
+    public static String frameList;
 
     public static boolean dragonEggRecipe;
 }

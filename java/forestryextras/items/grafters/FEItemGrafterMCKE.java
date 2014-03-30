@@ -1,4 +1,4 @@
-package forestryextras.items;
+package forestryextras.items.grafters;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,6 +8,8 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thaumcraftextras.api.energy.IToolMCKE;
+import thaumcraftextras.api.functions.ChargerFunctions;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,9 +18,9 @@ import forestry.api.recipes.RecipeManagers;
 import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
-public class FEItemGrafter extends Item implements IToolGrafter{
+public class FEItemGrafterMCKE extends Item implements IToolGrafter, IToolMCKE{
 
-	public FEItemGrafter(int id, String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
+	public FEItemGrafterMCKE(int id, String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		super(id);
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "grafter" + "." + itemName);
 		setCreativeTab(Tabs.tabMain);
@@ -53,21 +55,21 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 	{
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
 		OreDictionary.registerOre(oreDict, this);
-		
+		ChargerFunctions.addChargeAble(this);
 		recipe(easy);
 	}
 	
     public void recipe(boolean easy)
     {
     	if(easy == true){
-    		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
+    		GameRegistry.addShapedRecipe(new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"  X",
     			" I ",
     			"I  ",
     			'X', mainMat,
     			'I', handleMat});
     	}else{
-    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this), new Object[]{
+    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"  X",
     			" I ",
     			"I  ",
@@ -132,5 +134,24 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 	public float getSaplingModifier(ItemStack arg0, World arg1,
 			EntityPlayer arg2, int arg3, int arg4, int arg5) {
 		return saplingMod;
+	}
+	
+	@Override
+	public int getAmountOfEnergy(ItemStack stack) {
+		return getDamage(stack);
+	}
+
+	@Override
+	public void getCostForMode(ItemStack stack, int cost) {
+	}
+
+	@Override
+	public void setAmountOfEnergy(ItemStack stack, int amount) {
+		stack.setItemDamage(amount);
+	}
+
+	@Override
+	public void setCostForMode(ItemStack arg0, int arg1, int arg2) {
+		
 	}
 }

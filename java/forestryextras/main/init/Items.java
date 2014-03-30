@@ -1,6 +1,5 @@
 package forestryextras.main.init;
 
-import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,6 +8,8 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.common.Loader;
+import forestryextras.helpers.ModifierHelper;
 import forestryextras.helpers.NuggetHelper;
 import forestryextras.items.FEItemFrame;
 import forestryextras.items.FEItemGrafter;
@@ -23,6 +24,7 @@ public class Items {
 	public static void init()
 	{
 		initItems();
+		initModifiers();
 		initFrames();
 		initScoops();
 		initGrafters();
@@ -30,14 +32,13 @@ public class Items {
 		initModSupportFrames();
 		initWorldGen();
 		initNuggets();
-		Bees.init();
 	}
 	
 	public static void initItems()
 	{
-		
 		draconicIngot = new FEItemIngot(Config.draconicIngotId, "draconicIngot", 0xFF0000, "ingotDraconic");
 		reinforcedIngot = new FEItemIngot(Config.reinforcedIngotId, "reinforcedIngot", 0x999999, "ingotReinforced");
+		witheriaIngot = new FEItemIngot(Config.witheriaIngotId, "witheriaIngot", 0x333333, "ingotWitheria");
 		alfiumIngot = new FEItemIngot(Config.alfiumIngotId, "alfiumIngot", 0x663366, "ingotAlfium");
 		ryuIngot = new FEItemIngot(Config.ryuIngotId, "ryuIngot", 0x990000, "ingotRyu");
 
@@ -51,11 +52,14 @@ public class Items {
 		obsidianStick = new FEItemStick(Config.obsidianStickId, "obsidianStick", 0x999966, "stickObsidian", new ItemStack(Block.obsidian));
 		reinforcedStick = new FEItemStick(Config.reinforcedStickId, "reinforcedStick", 0xCCCC99, "stickReinforced", new ItemStack(Items.reinforcedIngot));
 		alfiumStick = new FEItemStick(Config.alfiumStickId, "alfiumStick", 0x663366, "stickAlfium", new ItemStack(Items.alfiumIngot));
+		witheriaStick = new FEItemStick(Config.witheriaStickId, "witheriaStick", 0x333333, "stickWitheria", new ItemStack(Items.witheriaIngot));
+
 	}
 	public static FEItemIngot draconicIngot;
 	public static FEItemIngot reinforcedIngot;
 	public static FEItemIngot alfiumIngot;
 	public static FEItemIngot ryuIngot;
+	public static FEItemIngot witheriaIngot;
 
 	public static FEItemStick coalStick;
 	public static FEItemStick diamondStick;
@@ -67,6 +71,7 @@ public class Items {
 	public static FEItemStick obsidianStick;
 	public static FEItemStick reinforcedStick;
 	public static FEItemStick alfiumStick;
+	public static FEItemStick witheriaStick;
 
 	public static void initFrames()
 	{
@@ -76,9 +81,11 @@ public class Items {
 		diamondFrame = new FEItemFrame(Config.diamondFrameId, 250, false, false, false, false, 1.0F, 1.0F, 1.4F, 1.0F, 1.0F, 1.0F, "frameDiamond", "frameDiamond", "frame", 0xCCFFFF, new ItemStack(Item.silk), new ItemStack(Items.diamondStick), false, new FluidStack(FluidRegistry.LAVA, 10), 12);
 		emeraldFrame = new FEItemFrame(Config.emeraldFrameId, 300, false, false, false, false, 1.0F, 1.0F, 1.5F, 1.0F, 1.0F, 1.0F, "frameEmerald", "frameEmerald", "frame", 0x99FF66, new ItemStack(Item.silk), new ItemStack(Items.emeraldStick), false, new FluidStack(FluidRegistry.LAVA, 10), 14);
 		reinforcedFrame = new FEItemFrame(Config.reinforcedFrameId, 500, false, false, false, false, 1.0F, 1.0F, 1.4F, 1.0F, 1.0F, 1.0F, "frameReinforced", "frameReinforced", "frame", 0xCCCC99, new ItemStack(Item.silk), new ItemStack(Items.reinforcedStick), false, new FluidStack(FluidRegistry.LAVA, 15), 20);
+		witheriaFrame = new FEItemFrame(Config.witheriaFrameId, 750, false, false, false, false, 1.0F, 1.0F, 2.0F, 1.0F, 1.0F, 1.0F, "frameWitheria", "frameWitheria", "frame", 0x333333, new ItemStack(Item.blazePowder), new ItemStack(Items.witheriaStick), false, new FluidStack(FluidRegistry.LAVA, 15), 20);
 		draconicFrame = new FEItemFrame(Config.draconicFrameId, 1000, false, false, false, false, 1.0F, 1.0F, 2.5F, 1.0F, 1.0F, 1.0F, "frameDraconic", "frameDraconic", "frame", 0xFF0000, new ItemStack(Item.silk), new ItemStack(Items.draconicStick), false, new FluidStack(FluidRegistry.LAVA, 100), 100);
 		mutationFrame = new FEItemFrame(Config.mutationFrameId, 25, false, false, false, false, 1.0F, 1.0F, 1.0F, 1.0F, 10.0F, 1.0F, "frameMutation", "frameMutation", "frame", 0x99CC00, new ItemStack(Item.enderPearl), new ItemStack(Items.mutationStick), true, null, 0);
 		alfiumFrame = new FEItemFrame(Config.alfiumFrameId, 750, false, false, false, false, 1.0F, 1.0F, 1.5F, 1.0F, 1.0F, 1.0F, "frameAlfium", "frameAlfium", "frame", 0x663366, new ItemStack(Item.silk), new ItemStack(Items.alfiumStick), false, new FluidStack(FluidRegistry.LAVA, 15), 20);
+		//customFrame = new FEItemFrameCustom(Config.upgradeFrameId, 10, false, false, false, false, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, "frameCustom", "frameCustom", "frame", 0x663366, new ItemStack(Item.ingotGold), new ItemStack(Items.emeraldStick), true, null, 0);
 	}
 	public static FEItemFrame coalFrame;
 	public static FEItemFrame ironFrame;
@@ -90,7 +97,10 @@ public class Items {
 	public static FEItemFrame mutationFrame;
 	public static FEItemFrame obsidianFrame;
 	public static FEItemFrame alfiumFrame;
+	public static FEItemFrame witheriaFrame;
 
+	//public static FEItemFrameCustom customFrame;
+	
 	public static void initScoops()
 	{
 		reinforcedScoop = new FEItemScoop(Config.reinforcedScoopId, "scoopReinforced", 0xFFFFFF, 0x999999, "scoopReinforced", 300, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
@@ -104,9 +114,11 @@ public class Items {
 	{
 		reinforcedGrafter = new FEItemGrafter(Config.reinforcedGrafterId, "grafterReinforced", 0x996633, 0x999999, "grafterReinforced", 300, 1.5F, new ItemStack(Items.reinforcedIngot), new ItemStack(Items.reinforcedStick), true, null, 0);
 		draconicGrafter = new FEItemGrafter(Config.draconicGrafterId, "grafterDraconic", 0x996633, 0xFF0000, "grafterDraconic", 700, 2.0F, new ItemStack(Items.draconicIngot), new ItemStack(Items.draconicStick), true, null, 0);
+//		customGrafter = new FEItemGrafterCustom(Config.customGrafterId, "grafterCustom", 0x996633, 0xFF0000, "grafterCustom", 700, 2.0F, new ItemStack(Items.witheriaIngot), new ItemStack(Items.witheriaStick), true, null, 0);
 	}
 	public static FEItemGrafter draconicGrafter;
 	public static FEItemGrafter reinforcedGrafter;
+//	public static FEItemGrafterCustom customGrafter;
 
 	public static void initModSupportFrames()
 	{
@@ -245,12 +257,12 @@ public class Items {
 	{
 		NuggetHelper.addNuggetToMap(0, "Draconic", 0xFF0000, new ItemStack(Items.draconicIngot));
 		NuggetHelper.addNuggetToMap(1, "Reinforced", 0xCCCC99, new ItemStack(Items.reinforcedIngot));
-		
+
 		if(Loader.isModLoaded("Thaumcraft") && OreDictionary.getOres("ingotThaumium").size() > 0){
 		NuggetHelper.addNuggetToMap(2, "Thaumium", 0x9966FF, OreDictionary.getOres("ingotThaumium").get(0));}
 		
 		if(Loader.isModLoaded("ThaumcraftExtras") && OreDictionary.getOres("ingotDarkThaumium").size() > 0){
-		NuggetHelper.addNuggetToMap(3, "Dark Thaumium", 0x993399, OreDictionary.getOres("IngotDarkThaumium").get(0));}
+		NuggetHelper.addNuggetToMap(3, "Dark Thaumium", 0x993399, OreDictionary.getOres("ingotDarkThaumium").get(0));}
 
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotFairy").size() > 0){
 		NuggetHelper.addNuggetToMap(4, "Fairy", 0xFF33FF, OreDictionary.getOres("ingotFairy").get(0));}
@@ -258,8 +270,35 @@ public class Items {
 		if(Loader.isModLoaded("ExtraTiC") && OreDictionary.getOres("ingotPokefennium").size() > 0){
 		NuggetHelper.addNuggetToMap(5, "Pokefennium", 0x9999FF, OreDictionary.getOres("ingotPokefennium").get(0));}
 
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotConductiveIron").size() > 0){
+		NuggetHelper.addNuggetToMap(6, "Conductive Iron", 0x999966, OreDictionary.getOres("ingotConductiveIron").get(0));}
+		
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotElectricalSteel").size() > 0){
+		NuggetHelper.addNuggetToMap(7, "Electrical Steel", 0x999966, OreDictionary.getOres("ingotElectricalSteel").get(0));}
+		
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotEnergeticAlloy").size() > 0){
+		NuggetHelper.addNuggetToMap(8, "Energetic Alloy", 0x99FF66, OreDictionary.getOres("ingotEnergeticAlloy").get(0));}
+		
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotVibrantAlloy").size() > 0){
+		NuggetHelper.addNuggetToMap(9, "Vibrant Alloy", 0xFF9900, OreDictionary.getOres("ingotVibrantAlloy").get(0));}
+		
+		if(Loader.isModLoaded("EnderIO") && OreDictionary.getOres("ingotPulsatingIron").size() > 0){
+		NuggetHelper.addNuggetToMap(10, "Pulsating Iron", 0xFF9900, OreDictionary.getOres("ingotPulsatingIron").get(0));}
+		
+		//if(Loader.isModLoaded("EnderIO") && Bees.doesModItemExist("EnderIO", "electricalSteel")){
+		//NuggetHelper.addNuggetToMap(7, "ElectricSteel", 0xCCCC99, GameRegistry.findItemStack("EnderIO", "electricalSteel", 1));}
+		
 		nugget = new FEItemNugget(Config.nuggetId);
 		NuggetHelper.addRecipes();
 	}
 	public static FEItemNugget nugget;
+	
+	public static void initModifiers()
+	{
+		ModifierHelper.addModifier(Block.obsidian.blockID, ModifierHelper.frame, 10, ModifierHelper.typeDura, 0F);
+		
+		ModifierHelper.addModifier(Item.ingotGold.itemID, ModifierHelper.frame, 0, ModifierHelper.typeProd, 0.2F);
+	
+		ModifierHelper.addModifier(Item.dyePowder.itemID, ModifierHelper.grafter, 0, ModifierHelper.grafterTypeColor, 0.0F);
+	}
 }

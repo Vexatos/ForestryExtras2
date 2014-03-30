@@ -1,8 +1,10 @@
---Items-
+--Ingots-
 item.fe.item.draconicIngot.name=Draconic Ingot
 item.fe.item.reinforcedIngot.name=Reinforced Ingot
+item.fe.item.witheriaIngot.name=Witheria Ingot
 item.fe.item.ryuIngot.name=Ryu Ingot
 item.fe.item.alfiumIngot.name=Alfium Ingot
+--Sticks--
 item.fe.item.coalStick.name=Coal Stick
 item.fe.item.ironStick.name=Iron Stick
 item.fe.item.goldStick.name=Gold Stick
@@ -28,24 +30,38 @@ item.fe.item.voidStick.name=Void Stick
 item.fe.item.pokefenniumStick.name=Pokefennium Stick
 item.fe.item.fairyStick.name=Fairy Stick
 item.fe.item.alfiumStick.name=Alfium Stick
+item.fe.item.witheriaStick.name=Witheria Stick
 --Nuggets--
 item.fe.nugget.draconic.name=Draconic Nugget
 item.fe.nugget.reinforced.name=Reinforced Nugget
 item.fe.nugget.thaumium.name=Thaumium Nugget
-item.fe.nugget.darkthaumium.name=Dark Thaumium Nugget
+item.fe.nugget.dark thaumium.name=Dark Thaumium Nugget
 item.fe.nugget.fairy.name=Fairy Nugget
 item.fe.nugget.pokefennium.name=Pokefennium Nugget
+item.fe.nugget.conductive iron.name=Conductive Iron
+item.fe.nugget.electrical steel.name=Electrical Steel
+item.fe.nugget.energetic alloy.name=Energetic Alloy
+item.fe.nugget.vibrant alloy.name=Vibrant Alloy
+item.fe.nugget.pulsating iron.name=Pulsating Iron
 --Combs--
 item.fe.comb.draconic.name=Draconic Comb
 item.fe.comb.reinforced.name=Reinforced Comb
 item.fe.comb.thaumium.name=Thaumium Comb
-item.fe.comb.darkthaumium.name=Dark Thaumium Comb
+item.fe.comb.dark thaumium.name=Dark Thaumium Comb
 item.fe.comb.fairy.name=Fairy Comb
 item.fe.comb.pokefennium.name=Pokefennium Comb
+item.fe.comb.normal.name=Normal Comb
+item.fe.comb.conductive iron.name=Conductive Iron Comb
+item.fe.comb.electrical steel.name=Electrical Steel Comb
+item.fe.comb.energetic alloy.name=Energetic Alloy Comb
+item.fe.comb.vibrant alloy.name=Vibrant Alloy Comb
+item.fe.comb.pulsating iron.name=Pulsating Iron Comb
+item.fe.comb.botanist.name=Botanist Comb
 --Blocks--
 tile.fe.block.draconicBlock.name=Draconic Block
 tile.fe.block.reinforcedBlock.name=Reinforced Block
 tile.fe.block.draconicOre.name=Draconic Ore
+tile.fe.block.beeducer.name=Beeducer
 --Frames--
 item.fe.frame.frameCoal.name=Coal Frame
 item.fe.frame.frameIron.name=Iron Frame
@@ -72,12 +88,16 @@ item.fe.frame.frameVoid.name=Void Frame
 item.fe.frame.framePokefennium.name=Pokefennium Frame
 item.fe.frame.frameFairy.name=Fairy Frame
 item.fe.frame.frameAlfium.name=Alfium Frame
+item.fe.frame.frameMCKE.name=MCKE Frame
+item.fe.frame.frameWitheria.name=Witheria Frame
 --Grafters--
 item.fe.grafter.grafterReinforced.name=Reinforced Grafter
 item.fe.grafter.grafterDraconic.name=Draconic Grafter
+item.fe.grafter.grafterMCKE.name=MCKE Grafter
 --Scoops--
 item.fe.scoop.scoopReinforced.name=Reinforced Scoop
 item.fe.scoop.scoopDraconic.name=Draconic Scoop
+item.fe.scoop.scoopMCKE.name=MCKE Scoop
 --Bees--
 fe.bees.species.draconic=Draconic
 fe.bees.species.reinforced=Reinforced
@@ -85,3 +105,11 @@ fe.bees.species.thaumium=Thaumium
 fe.bees.species.darkThaumium=Dark Thaumium
 fe.bees.species.fairy=Fairy
 fe.bees.species.pokefennium=Pokefennium
+fe.bees.species.greatwood=Greatwood
+fe.bees.species.silverwood=Silverwood
+fe.bees.species.conductiveIron=Conductive Iron
+fe.bees.species.electricalSteel=Electrical Steel
+fe.bees.species.energeticAlloy=Energetic Alloy
+fe.bees.species.vibrantAlloy=Vibrant Alloy
+fe.bees.species.pulsatingIron=Pulsating Iron
+fe.bees.species.botanist=Botanist

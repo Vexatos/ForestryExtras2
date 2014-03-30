@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.FluidStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.recipes.RecipeManagers;
 import forestryextras.blocks.FEBlock;
+import forestryextras.blocks.FEBlockProducer;
 import forestryextras.main.Config;
 
 public class Blocks {
@@ -18,7 +19,9 @@ public class Blocks {
 		draconicBlock = new FEBlock(Config.draconicBlockId, Material.iron, "draconicBlock", "draconicblock", true, 1.0F, new ItemStack(Items.draconicIngot));
 		reinforcedBlock = new FEBlock(Config.reinforcedBlockId, Material.iron, "reinforcedBlock", "reinforcedblock", true, 1.0F, new ItemStack(Items.reinforcedIngot));
 		draconicOre = new FEBlock(Config.draconicOreId, Material.iron, "draconicOre", "draconicore", false, 0F, null);
-
+		producer = new FEBlockProducer(Config.producerId, "Beeducer");
+		
+//		upgrader = new FEBlockUpgrader(Config.upgraderId, "Upgrader");
 		GameRegistry.registerWorldGenerator(new WorldGen());
 		
 		smelting();
@@ -43,6 +46,7 @@ public class Blocks {
 	public static FEBlock draconicBlock;
 	public static FEBlock reinforcedBlock;
 	public static FEBlock draconicOre;
-	
-	
+	public static FEBlockProducer producer;
+
+//	public static FEBlockUpgrader upgrader;
 }

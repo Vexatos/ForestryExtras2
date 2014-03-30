@@ -7,6 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import forestryextras.helpers.util.FileHelper;
 import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
@@ -29,6 +30,7 @@ public class FEItemIngot extends Item{
 	{
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
 		OreDictionary.registerOre(oreDict, this);
+		FileHelper.list.put(FileHelper.list.size(), this.getItemDisplayName(new ItemStack(this)));
 	}
 	
 	@SideOnly(Side.CLIENT)

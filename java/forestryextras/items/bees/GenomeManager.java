@@ -15,7 +15,7 @@ public class GenomeManager {
 	{
 		IAllele[] genome = new IAllele[EnumBeeChromosome.values().length];
 
-		//genome[EnumBeeChromosome.SPECIES.ordinal()] = Items.thaumium;
+		genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.draconicBee;
 		genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedSlowest");
 		genome[EnumBeeChromosome.LIFESPAN.ordinal()] = Allele.getBaseAllele("lifespanShorter");
 		genome[EnumBeeChromosome.FERTILITY.ordinal()] = Allele.getBaseAllele("fertilityNormal");
@@ -39,7 +39,7 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.draconicBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
 
 			return genome;
 		}
@@ -51,7 +51,7 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.reinforcedBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
 
 			return genome;
 		}
@@ -63,7 +63,7 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.thaumiumBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedNormal");
 
 			return genome;
 		}
@@ -75,7 +75,7 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.darkThaumiumBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
 
 			return genome;
 		}
@@ -87,7 +87,7 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.pokefenniumBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
 
 			return genome;
 		}
@@ -99,7 +99,103 @@ public class GenomeManager {
 			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.fairyBee;
 			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
 			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
-			genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getElectricalTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.electricalBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getConductiveTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.conductiveBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getEnergeticTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.energeticBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getVibrantTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.vibrantBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getPulsatingTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.pulsatingBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getSilverwoodTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.silverwoodBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getGreatwoodTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.greatwoodBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
+
+			return genome;
+		}
+		
+		public static IAllele[] getBotanistTemplate()
+		{
+			IAllele[] genome = getTemplateModBase();
+			
+			genome[EnumBeeChromosome.SPECIES.ordinal()] = Bees.botanistBee;
+			genome[EnumBeeChromosome.CAVE_DWELLING.ordinal()] = Allele.getBaseAllele("boolTrue");
+			genome[EnumBeeChromosome.NOCTURNAL.ordinal()] = Allele.getBaseAllele("boolTrue");
+			//genome[EnumBeeChromosome.SPEED.ordinal()] =  Allele.getBaseAllele("speedFastest");
 
 			return genome;
 		}

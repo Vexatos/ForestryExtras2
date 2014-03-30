@@ -1,4 +1,4 @@
-package forestryextras.helpers;
+package forestryextras.helpers.util;
 
 import forestryextras.main.Main;
 import net.minecraft.block.Block;

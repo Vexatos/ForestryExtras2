@@ -1,4 +1,4 @@
-package forestryextras.items;
+package forestryextras.items.frames;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import org.lwjgl.input.Keyboard;
 
+import thaumcraftextras.api.energy.IToolMCKE;
+import thaumcraftextras.api.functions.ChargerFunctions;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,24 +22,22 @@ import forestry.api.apiculture.IBeeGenome;
 import forestry.api.apiculture.IBeeHousing;
 import forestry.api.apiculture.IHiveFrame;
 import forestry.api.recipes.RecipeManagers;
-import forestryextras.helpers.util.FileHelper;
 import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
-public final class FEItemFrame extends Item implements IHiveFrame {
+public final class FEItemFrameMCKE extends Item implements IHiveFrame, IToolMCKE{
 
-    public FEItemFrame(int id, int durability, boolean isHelish, boolean isSimulated, boolean isSelfLighted, boolean isSealed,
+    public FEItemFrameMCKE(int id, int energyAmount, boolean isHelish, boolean isSimulated, boolean isSelfLighted, boolean isSealed,
     		float frameDecay, float floweringMod, float productionMod, float lifespanMod,
     		float mutationMod, float territoryMod, String itemName, String oreDictName, String textureName, int frameColor,
     		ItemStack bindingMaterial, ItemStack frameMaterial, boolean easyRecipe, FluidStack recipeFluid, int creationTime)
     {
         super(id);
-		setUnlocalizedName(Main.alias.toLowerCase() + "." + "frame" + "." + itemName);
+		setUnlocalizedName(Main.alias.toLowerCase() + "." + "frame" + "." + "frameMCKE");
         setCreativeTab(Tabs.tabMain);
         setMaxStackSize(1);
-        setMaxDamage(durability);
+        setMaxDamage(energyAmount);
         
-        uses = durability;
         helish = isHelish;
         simulated = isSimulated;
         selflighted = isSelfLighted;
@@ -48,12 +48,13 @@ public final class FEItemFrame extends Item implements IHiveFrame {
         lifespanmodifier = lifespanMod;
         mutationmodifier = mutationMod;
         territorymodifier = territoryMod;        
-        
+      
         name = itemName;
         oreDict = oreDictName;
         texture = textureName;
         color = frameColor;
-        
+        uses = energyAmount;
+
         frameMat = frameMaterial;
         bindingMat = bindingMaterial;
         easyRec = easyRecipe;
@@ -81,42 +82,27 @@ public final class FEItemFrame extends Item implements IHiveFrame {
     FluidStack recFluid;
     int createTime;
     int uses;
-    
+
     public void init()
     {
     	recipe(easyRec);
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
 		OreDictionary.registerOre(oreDict, this); 
-		FileHelper.list.put(FileHelper.list.size(), this.getItemDisplayName(new ItemStack(this)));
-        
-		initFrameList();
-        
-
-    }
-    
-    public void initFrameList()
-    {
-		FileHelper.prodMod.put(FileHelper.prodMod.size(), this.productionmodifier);
-		FileHelper.decay.put(FileHelper.decay.size(), this.decay);
-		FileHelper.flowering.put(FileHelper.flowering.size(), this.flowering);
-		FileHelper.lifeMod.put(FileHelper.lifeMod.size(), this.lifespanmodifier);
-		FileHelper.mutMod.put(FileHelper.mutMod.size(), this.mutationmodifier);
-		FileHelper.terMod.put(FileHelper.terMod.size(), this.territorymodifier);
-		FileHelper.durability.put(FileHelper.durability.size(), this.uses);
-		FileHelper.frameName.put(FileHelper.frameName.size(), this.name);
-    }
+		ChargerFunctions.addChargeAble(this);
+//		ListHelper.list.put(ListHelper.list.size() + 1, this.getItemDisplayName(new ItemStack(this)));
+	}
     
     public void recipe(boolean easy)
     {
     	if(easy == true){
-    		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
+    		GameRegistry.addShapedRecipe(new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"XXX",
     			"XIX",
     			"XXX",
     			'X', frameMat,
     			'I', bindingMat});
     	}else{
-    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this), new Object[]{
+    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"XXX",
     			"XIX",
     			"XXX",
@@ -200,8 +186,8 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 	}
 	
 	@Override
-    public void addInformation(ItemStack itemstack, EntityPlayer player, List list, boolean bool) 
-	{
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean id)
+	{	
 		if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)){
 			list.add(EnumChatFormatting.RED + "Durability: " + EnumChatFormatting.GRAY + uses);
 			list.add(EnumChatFormatting.RED + "isHelish: " + EnumChatFormatting.GRAY + helish);
@@ -217,5 +203,24 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 		}else{
 			list.add(EnumChatFormatting.GREEN + "Press " + "Shift " + "for more info.");
 		}
+	}
+
+	@Override
+	public int getAmountOfEnergy(ItemStack stack) {
+		return getDamage(stack);
+	}
+
+	@Override
+	public void getCostForMode(ItemStack stack, int cost) {
+	}
+
+	@Override
+	public void setAmountOfEnergy(ItemStack stack, int amount) {
+		stack.setItemDamage(amount);
+	}
+
+	@Override
+	public void setCostForMode(ItemStack arg0, int arg1, int arg2) {
+		
 	}
 }

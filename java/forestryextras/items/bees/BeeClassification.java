@@ -13,7 +13,17 @@ public enum BeeClassification implements IClassification
 	THAUMIUM("Thaumium", "Thaumium"),
 	DARKTHAUMIUM("DarkThaumium", "DarkThaumium"),
 	FAIRY("Fairy", "Fairy"),
-	POKEFENNIUM("Pokefennium", "Pokefennium");
+	POKEFENNIUM("Pokefennium", "Pokefennium"),
+	ELECTRICSTEEL("ElectricSteel", "ElectricSteel"),
+	SILVERWOOD("Silverwood", "Silverwood"),
+	GREATWOOD("Greatwood", "Greatwood"),
+	CONDUCTIVE("Conductive", "Conductive"),
+	ELECTRICAL("Electrical", "Electrical"),
+	ENERGETIC("Energetic", "Energetic"),
+	VIBRANT("Vibrant", "Vibrant"),
+	PULSATING("Pulsating", "Pulsating"),
+	BOTANIST("Botanist", "Botanist");
+	
 
 	private String uID;
 	private String latin;

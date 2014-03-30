@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.oredict.OreDictionary;
@@ -14,6 +15,7 @@ import forestry.api.apiculture.IBeeMutation;
 import forestry.api.apiculture.IBeeRoot;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IGenome;
+import forestryextras.helpers.util.FileHelper;
 import forestryextras.main.init.Bees;
 
 public class BeeMutation implements IBeeMutation
@@ -25,7 +27,7 @@ public class BeeMutation implements IBeeMutation
 	}
 	
 
-	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance)
+	public BeeMutation(IAlleleBeeSpecies species0, IAlleleBeeSpecies species1, IAllele[] resultSpeciesGenome, int percentChance, boolean requiresBlock, IAlleleBeeSpecies resultType, String mod)
 	{
 		this.parent1 = species0;
 		this.parent2 = species1;
@@ -41,6 +43,10 @@ public class BeeMutation implements IBeeMutation
 		this.requiredBlockName = null;
 		
 		this.getRoot().registerMutation(this);
+		FileHelper.parent1.put(FileHelper.parent1.size(), species0.getName());
+		FileHelper.parent2.put(FileHelper.parent2.size(), species1.getName());
+		FileHelper.result.put(FileHelper.result.size(), resultType.getName());
+		FileHelper.beeAuthor.put(FileHelper.beeAuthor.size(), mod);
 	}
 	private IAllele parent1;
 	private IAllele parent2;
@@ -197,6 +203,30 @@ public class BeeMutation implements IBeeMutation
 	@Override
 	public Collection<String> getSpecialConditions() {
 		ArrayList<String> conditions = new ArrayList<String>();
+		
+		if (this.requiresBlock)
+		{
+			if (this.requiredBlockName != null)
+			{
+			}
+			else if (this.requiredBlockOreDictEntry != null)
+			{
+				ArrayList<ItemStack> ores = OreDictionary.getOres(this.requiredBlockOreDictEntry);
+				if (ores.size() > 0)
+				{
+					conditions.add(String.format("Requires Block ", ores.get(0).getDisplayName()));
+				}
+			}
+			else
+			{
+				int meta = 0;
+				if (this.requiredBlockMeta != OreDictionary.WILDCARD_VALUE)
+				{
+					meta = this.requiredBlockMeta;
+				}
+			}
+		}
+		
 		return conditions;
 	}
 }

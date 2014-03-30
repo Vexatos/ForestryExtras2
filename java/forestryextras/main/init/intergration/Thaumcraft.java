@@ -1,8 +1,11 @@
 package forestryextras.main.init.intergration;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.common.config.ConfigBlocks;
 import forestryextras.main.init.Blocks;
 import forestryextras.main.init.Items;
 
@@ -14,6 +17,19 @@ public class Thaumcraft {
 	{
 		initOreClusters();
 		initMaterialAspects();
+	}
+	
+	public static void preInit()
+	{
+		initOreDictRegisters();
+	}
+
+	public static void initOreDictRegisters()
+	{
+		OreDictionary.registerOre("woodSilverwood", new ItemStack(ConfigBlocks.blockMagicalLog, 1, 1));
+		OreDictionary.registerOre("woodGreatwood", new ItemStack(ConfigBlocks.blockMagicalLog, 1, 0));
+		OreDictionary.registerOre("saplingGreatwood", new ItemStack(ConfigBlocks.blockCustomPlant, 1, 0));
+		OreDictionary.registerOre("saplingSilverwood", new ItemStack(ConfigBlocks.blockCustomPlant, 1, 1));
 	}
 	
 	public static void initOreClusters()

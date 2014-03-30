@@ -1,5 +1,6 @@
 package forestryextras.items;
 
+import java.awt.Color;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -54,7 +55,11 @@ public class FEItemNugget extends Item{
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack stack, int pass)
 	{		
+		if(NuggetHelper.color.containsKey(stack.getItemDamage())){
 			return NuggetHelper.color.get(stack.getItemDamage());
+		}else{
+			return Color.white.getRGB();
+		}
 	}
 	
 	@Override

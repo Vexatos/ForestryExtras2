@@ -23,6 +23,7 @@ import forestry.api.genetics.AlleleManager;
 import forestry.api.genetics.IAllele;
 import forestry.api.genetics.IClassification;
 import forestry.api.genetics.IIndividual;
+import forestryextras.helpers.util.FileHelper;
 import forestryextras.main.init.Bees;
 
 public class Species implements IAlleleBeeSpecies, IIconProvider{
@@ -69,6 +70,7 @@ public class Species implements IAlleleBeeSpecies, IIconProvider{
         this.branch.addMemberSpecies(this);
         this.isActive = true;
         this.isNocturnal = false;
+		FileHelper.list.put(FileHelper.list.size(), this.getName() + " Bee");
     }
 
 	@Override

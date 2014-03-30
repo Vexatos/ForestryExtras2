@@ -7,17 +7,53 @@ public class IntergrationLoader {
 	public static void init()
 	{
 		if(Loader.isModLoaded("ForgeMultipart")){
-			System.out.print("ForgeMultipart is installed, adding intergration" + '\n');
+			System.out.print(initMessage("Forge Multipart"));
 			ForgeMultipart.init();}
 		
 		if(Loader.isModLoaded("TinkersConstruct")){
-			//System.out.print("Tinkers Construct is installed, adding intergration" + '\n');
+			//System.out.print(initMessage("Tinkers Construct"));
 			TinkersConstruct.init();}
 		
 		if(Loader.isModLoaded("Thaumcraft")){
-			System.out.print("Thaumcraft is installed, adding intergration" + '\n');
-			Thaumcraft.init();
-		}
+			System.out.print(initMessage("Thaumcraft"));
+			Thaumcraft.init();}
+		
+		if(Loader.isModLoaded("ThermalExpansion")){
+			System.out.print(initMessage("Thermal Expansion"));
+			ThermalExpansion.init();}
+		
+		if(Loader.isModLoaded("ThaumcraftExtras")){
+			System.out.print(initMessage("Thaumcraft Extras"));
+			ThaumcraftExtras.init();}
+		
+		if(Loader.isModLoaded("Botania")){
+			System.out.print(initMessage("Botania"));
+			Botania.init();}
+		
+		if(Loader.isModLoaded("BloodMagic")){
+			//System.out.print(initMessage("Blood Magic"));
+			BloodMagic.init();}
 	}
 	
+	public static void preFullInit()
+	{
+		if(Loader.isModLoaded("EnderIO")){
+			System.out.print(initMessage("EnderIO"));
+			EnderIO.init();}
+		
+		if(Loader.isModLoaded("Thaumcraft")){
+			Thaumcraft.preInit();}
+	}
+	
+	public static String initMessage(String modName)
+	{
+		return "[Forestry Extras 2] " + modName + " is installed, adding intergration" + "\n";
+	}
+	
+	public static void initRequired(String modID)
+	{
+		if(modID == "ThermalExpansion" && Loader.isModLoaded(modID)){
+			ThermalExpansion.initRenders();
+		}
+	}
 }

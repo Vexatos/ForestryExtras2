@@ -1,9 +1,10 @@
-package forestryextras.items;
+package forestryextras.items.grafters;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
@@ -16,9 +17,9 @@ import forestry.api.recipes.RecipeManagers;
 import forestryextras.main.Main;
 import forestryextras.main.init.Tabs;
 
-public class FEItemGrafter extends Item implements IToolGrafter{
+public class FEItemGrafterCustom extends Item implements IToolGrafter{
 
-	public FEItemGrafter(int id, String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
+	public FEItemGrafterCustom(int id, String itemName, int primaryColor, int secondaryColor, String oreDictName, int maxItemDamage, float saplingModifier, ItemStack mainMaterial, ItemStack handleMaterial, boolean isEasy, FluidStack recipeFluid, int creationTime) {
 		super(id);
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "grafter" + "." + itemName);
 		setCreativeTab(Tabs.tabMain);
@@ -51,23 +52,41 @@ public class FEItemGrafter extends Item implements IToolGrafter{
 	
 	public void init()
 	{
+		initNBT();
 		GameRegistry.registerItem(this, this.getUnlocalizedName());
 		OreDictionary.registerOre(oreDict, this);
-		
 		recipe(easy);
+	}
+	
+	public void initNBT()
+	{
+		ItemStack cItem = new ItemStack(this);
+		NBTTagCompound tag = cItem.getTagCompound();
+		if(tag == null)
+		{
+			tag = new NBTTagCompound("grafter");
+			cItem.setTagCompound(tag);
+			secColor = tag.getInteger("Color");
+			//cItem.setItemName("Name" + tag.getInteger("Color"));
+		}
+		else
+		{
+			cItem.setTagCompound(tag);
+			secColor = tag.getInteger("Color");
+		}
 	}
 	
     public void recipe(boolean easy)
     {
     	if(easy == true){
-    		GameRegistry.addShapedRecipe(new ItemStack(this), new Object[]{
+    		GameRegistry.addShapedRecipe(new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"  X",
     			" I ",
     			"I  ",
     			'X', mainMat,
     			'I', handleMat});
     	}else{
-    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this), new Object[]{
+    		RecipeManagers.carpenterManager.addRecipe(createTime, recFluid, null, new ItemStack(this, 1, getMaxDamage()), new Object[]{
     			"  X",
     			" I ",
     			"I  ",
