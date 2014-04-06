@@ -186,49 +186,49 @@ public class Items {
 	public static void initModSupportItems()
 	{
 		if(OreDictionary.getOres("ingotAlumite").size() > 0)
-			alumiteStick = new FEItemStick(Config.alumiteStickId, "alumiteStick", 0xFF33FF, "stickAlumite", OreDictionary.getOres("ingotAlumite").get(0));
+			alumiteStick = new FEItemStick(Config.alumiteStickId, "alumiteStick", 0xFF33FF, "stickAlumite", "ingotAlumite");
 
 		if(OreDictionary.getOres("ingotArdite").size() > 0)
-			arditeStick = new FEItemStick(Config.arditeStickId, "arditeStick", 0xCC6633, "stickArdite", OreDictionary.getOres("ingotArdite").get(0));
+			arditeStick = new FEItemStick(Config.arditeStickId, "arditeStick", 0xCC6633, "stickArdite", "ingotArdite");
 
 		if(OreDictionary.getOres("ingotBronze").size() > 0)
-			bronzeStick = new FEItemStick(Config.bronzeStickId, "bronzeStick", 0x996633, "stickBronze", OreDictionary.getOres("ingotBronze").get(0));
+			bronzeStick = new FEItemStick(Config.bronzeStickId, "bronzeStick", 0x996633, "stickBronze", "ingotBronze");
 
 		if(OreDictionary.getOres("ingotCobalt").size() > 0)
-			cobaltStick = new FEItemStick(Config.cobaltStickId, "cobaltStick", 0x0099CC, "stickCobalt", OreDictionary.getOres("ingotCobalt").get(0));
+			cobaltStick = new FEItemStick(Config.cobaltStickId, "cobaltStick", 0x0099CC, "stickCobalt", "ingotCobalt");
 
 		if(OreDictionary.getOres("ingotCopper").size() > 0)
-			copperStick = new FEItemStick(Config.copperStickId, "copperStick", 0xFFCC33, "stickCopper", OreDictionary.getOres("ingotCopper").get(0));
+			copperStick = new FEItemStick(Config.copperStickId, "copperStick", 0xFFCC33, "stickCopper", "ingotCopper");
 
 		if(OreDictionary.getOres("ingotLead").size() > 0)
-			leadStick = new FEItemStick(Config.leadStickId, "leadStick", 0x9999CC, "stickLead", OreDictionary.getOres("ingotLead").get(0));
+			leadStick = new FEItemStick(Config.leadStickId, "leadStick", 0x9999CC, "stickLead", "ingotLead");
 
 		if(OreDictionary.getOres("ingotManyullyn").size() > 0)
-			manyullynStick = new FEItemStick(Config.manyullynStickId, "manyullynStick", 0x9966FF, "stickManyullyn", OreDictionary.getOres("ingotManyullyn").get(0));
+			manyullynStick = new FEItemStick(Config.manyullynStickId, "manyullynStick", 0x9966FF, "stickManyullyn", "ingotManyullyn");
 
 		if(OreDictionary.getOres("ingotSilver").size() > 0)
-			silverStick = new FEItemStick(Config.silverStickId, "silverStick", 0xFFFFCC, "stickSilver", OreDictionary.getOres("ingotSilver").get(0));
+			silverStick = new FEItemStick(Config.silverStickId, "silverStick", 0xFFFFCC, "stickSilver", "ingotSilver");
 
 		if(OreDictionary.getOres("ingotSteel").size() > 0)
-			steelStick = new FEItemStick(Config.steelStickId, "steelStick", 0x999966, "stickSteel", OreDictionary.getOres("ingotSteel").get(0));
+			steelStick = new FEItemStick(Config.steelStickId, "steelStick", 0x999966, "stickSteel", "ingotSteel");
 		
 		if(OreDictionary.getOres("ingotTin").size() > 0)
-			tinStick = new FEItemStick(Config.tinStickId, "tinStick", 0xFFFFCC, "stickTin", OreDictionary.getOres("ingotTin").get(0));
+			tinStick = new FEItemStick(Config.tinStickId, "tinStick", 0xFFFFCC, "stickTin", "ingotTin");
 		
 		if(OreDictionary.getOres("ingotPokefennium").size() > 0)
-			pokefenniumStick = new FEItemStick(Config.pokefenniumStickId, "pokefenniumStick", 0x99CC99, "stickPokefennium", OreDictionary.getOres("ingotPokefennium").get(0));
+			pokefenniumStick = new FEItemStick(Config.pokefenniumStickId, "pokefenniumStick", 0x99CC99, "stickPokefennium", "ingotPokefennium");
 		
 		if(OreDictionary.getOres("ingotFairy").size() > 0)
-			fairyStick = new FEItemStick(Config.fairyStickId, "fairyStick", 0xFF99FF, "stickFairy", OreDictionary.getOres("ingotFairy").get(0));
+			fairyStick = new FEItemStick(Config.fairyStickId, "fairyStick", 0xFF99FF, "stickFairy", "ingotFairy");
 		
 		if(OreDictionary.getOres("ingotThaumium").size() > 0)
-			thaumiumStick = new FEItemStick(Config.thaumiumStickId, "thaumiumStick", 0x9966FF, "stickThaumium", OreDictionary.getOres("ingotThaumium").get(0));
+			thaumiumStick = new FEItemStick(Config.thaumiumStickId, "thaumiumStick", 0x9966FF, "stickThaumium", "ingotThaumium");
 		
 		if(OreDictionary.getOres("ingotDarkThaumium").size() > 0)
-			darkThaumiumStick = new FEItemStick(Config.darkThaumiumStickId, "darkThaumiumStick", 0x993399, "stickDarkThaumium", OreDictionary.getOres("ingotDarkThaumium").get(0));
+			darkThaumiumStick = new FEItemStick(Config.darkThaumiumStickId, "darkThaumiumStick", 0x993399, "stickDarkThaumium", "ingotDarkThaumium");
 		
 		if(OreDictionary.getOres("ingotVoid").size() > 0)
-			voidStick = new FEItemStick(Config.voidStickId, "voidStick", 0x9900CC, "stickVoid", OreDictionary.getOres("ingotVoid").get(0));
+			voidStick = new FEItemStick(Config.voidStickId, "voidStick", 0x9900CC, "stickVoid", "ingotVoid");
 		
 	}
 	public static FEItemStick alumiteStick;

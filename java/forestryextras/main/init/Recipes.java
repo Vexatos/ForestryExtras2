@@ -86,9 +86,9 @@ public class Recipes {
 			'Y', Items.witheriaIngot,
 			'Z', Item.eyeOfEnder});
 		
-		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beeDroneGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
-		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beePrincessGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
-		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beeQueenGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
+//		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beeDroneGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
+//		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beePrincessGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
+//		registerSqueezerRecipes(10, new ItemStack(ForestryItem.beeQueenGE.item()), new FluidStack(FluidRegistry.getFluid("honey"), 100));
 
 	}
 	

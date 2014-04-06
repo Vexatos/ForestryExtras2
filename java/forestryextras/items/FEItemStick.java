@@ -12,6 +12,18 @@ import forestryextras.main.init.Tabs;
 
 public class FEItemStick extends Item{
 
+	public FEItemStick(int id, String itemName, int itemColor, String oreDictName, String oreDictMaterial) {
+		super(id);
+		setUnlocalizedName(Main.alias.toLowerCase() + "." + "item" + "." + itemName);
+		setCreativeTab(Tabs.tabMain);
+		name = itemName;
+		color = itemColor;
+		oreDict = oreDictName;
+		mat = oreDictMaterial;
+		isOreDict = true;
+		init();
+	}
+	
 	public FEItemStick(int id, String itemName, int itemColor, String oreDictName, ItemStack material) {
 		super(id);
 		setUnlocalizedName(Main.alias.toLowerCase() + "." + "item" + "." + itemName);
@@ -19,13 +31,16 @@ public class FEItemStick extends Item{
 		name = itemName;
 		color = itemColor;
 		oreDict = oreDictName;
-		mat = material;
+		item = material;
+		isOreDict = false;
 		init();
 	}
 	String name;
 	String oreDict;
 	int color;
-	ItemStack mat;
+	String mat;
+	ItemStack item;
+	boolean isOreDict;
 	
 	public void init()
 	{
@@ -37,10 +52,19 @@ public class FEItemStick extends Item{
 	
 	public void recipes()
 	{
-		GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
-			" X",
-			"X ",
-			'X', mat});
+		if(isOreDict == true){
+			for(ItemStack stack : OreDictionary.getOres(mat)){
+				GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
+					" X",
+					"X ",
+					'X', stack});
+			}
+		}else{
+			GameRegistry.addShapedRecipe(new ItemStack(this, 4, 0), new Object[]{
+				" X",
+				"X ",
+				'X', item});
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)

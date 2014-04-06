@@ -103,10 +103,10 @@ public class Config {
 	    	//beeEngineOutput = config.get(Configuration.CATEGORY_GENERAL, "beeEngineOutput", 100).getInt();
 	    	
 	    	//beeEngineLifespan = config.get(Configuration.CATEGORY_GENERAL, "beeEngineLifespan", 64000).getInt();
-	    	itemList = config.get(Configuration.CATEGORY_GENERAL, "itemList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
-	    	mutationList = config.get(Configuration.CATEGORY_GENERAL, "mutationList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
-	    	frameList = config.get(Configuration.CATEGORY_GENERAL, "frameList", e.getModConfigurationDirectory().toString() + "\\ForestryExtras2\\").getString();
-
+	    	itemList = config.get(Configuration.CATEGORY_GENERAL, "itemList", e.getModConfigurationDirectory().toString() + "//ForestryExtras2//").getString();
+	    	mutationList = config.get(Configuration.CATEGORY_GENERAL, "mutationList", e.getModConfigurationDirectory().toString() + "//ForestryExtras2//").getString();
+	    	frameList = config.get(Configuration.CATEGORY_GENERAL, "frameList", e.getModConfigurationDirectory().toString() + "//ForestryExtras2//").getString();
+	    	forestryFMP = config.get(Configuration.CATEGORY_GENERAL, "forestryFMP", true).getBoolean(forestryFMP);
 	    	config.save();
 }
 	
@@ -209,6 +209,7 @@ public class Config {
     public static String itemList;
     public static String mutationList;
     public static String frameList;
-
+    
+    public static boolean forestryFMP;
     public static boolean dragonEggRecipe;
 }

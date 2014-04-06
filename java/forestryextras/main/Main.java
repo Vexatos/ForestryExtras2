@@ -23,7 +23,7 @@ import forestryextras.main.init.Recipes;
 import forestryextras.main.init.Tabs;
 import forestryextras.main.init.intergration.IntergrationLoader;
 
-@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.2.1" ,dependencies = "required-after:Forestry;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO; after:ThermalExpansion")
+@Mod(modid = "ForestryExtras", name = "ForestryExtras", version = "1.2.2" ,dependencies = "required-after:Forestry;after:Thaumcraft;after:ThaumcraftExtras;after:ExtraTiC;after:EnderIO; after:ThermalExpansion")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Main {
     @SidedProxy(clientSide = "forestryextras.client.ClientProxy", serverSide = "forestryextras.main.CommonProxy")
@@ -31,7 +31,7 @@ public class Main {
  
     @Instance("ForestryExtras")
     public static Main instance;
-    public static String version = "1.2.1";
+    public static String version = "1.2.2";
     public static String modName = "ForestryExtras";
     public static String alias = "FE";
     

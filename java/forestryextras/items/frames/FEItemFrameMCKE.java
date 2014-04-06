@@ -166,7 +166,8 @@ public final class FEItemFrameMCKE extends Item implements IHiveFrame, IToolMCKE
 	@Override
 	public ItemStack frameUsed(IBeeHousing housing, ItemStack frame,
 			IBee queen, int wear) {
-		 frame.setItemDamage(frame.getItemDamage() + wear);
+		int i = 1; 
+		 frame.setItemDamage(frame.getItemDamage() + i);
 	        if(frame.getItemDamage() >= frame.getMaxDamage())
 	            return null;
 	        else

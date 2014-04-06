@@ -180,7 +180,9 @@ public final class FEItemFrame extends Item implements IHiveFrame {
 	@Override
 	public ItemStack frameUsed(IBeeHousing housing, ItemStack frame,
 			IBee queen, int wear) {
-		 frame.setItemDamage(frame.getItemDamage() + wear);
+		/** I am not sure maybe Alveary Frame Housings set Wear as 5 so i am going to test it as 1*/
+		int i = 1;
+		 frame.setItemDamage(frame.getItemDamage() + i);
 	        if(frame.getItemDamage() >= frame.getMaxDamage())
 	            return null;
 	        else
